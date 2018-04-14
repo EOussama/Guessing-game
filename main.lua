@@ -1,6 +1,7 @@
 local menu = require('projects/guessing game/modules/menu')
 local plr = require('projects/guessing game/modules/player')
 player = plr:new("Player", 0)
+diff = 1
 
 main = function()
 	os.execute("cls")
@@ -16,7 +17,7 @@ main = function()
 		os.execute("cls")
 		
 		if choice == 1 then
-		
+			menu.showDiffMenu()
 		elseif choice == 2 then
 			menu.showPlayerSelectMenu()
 		elseif choice == 3 then
@@ -29,6 +30,7 @@ main = function()
 		
 	until choice == 5
 	
+	os.execute("cls")
 	print("Game over!")
 end
 

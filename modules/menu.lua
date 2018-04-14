@@ -1,4 +1,5 @@
 local plr = require("projects/guessing game/modules/player")
+local gm = require("projects/guessing game/modules/game")
 local menu = {}
 
 function menu.fileExists(path)
@@ -139,6 +140,36 @@ function menu.showPlayers()
 	until choice == 1
 	
 	return name
+end
+
+function menu.showDiffMenu()
+	local choice = nil
+	
+	repeat
+		print([[
+	
+	=============[Game difficulty]=============
+	|                                         |
+	|	1.	Novice                    |
+	|	2.	Avergae                   |
+	|	3.	Hard                      |
+	|	4.	Impossible                |
+	|	5.	Go back                   |
+	|                                         |
+	===========================================
+	]])
+		io.write("Input the difficulty number: ")
+		choice = tonumber(io.read())
+		os.execute("cls")
+
+		if choice >= 1 and choice < 5 then
+			diff = choice
+
+			gm.start()
+		else
+			print("[ERROR]: You have input an invalid choice")
+		end
+	until choice == 5
 end
 
 return menu
